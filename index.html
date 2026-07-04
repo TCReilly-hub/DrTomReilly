@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Thomas C Reilly</title>
+<meta name="description" content="Dr Thomas C Reilly — Consultation Liaison Psychiatrist, Melbourne.">
+<style>
+  :root {
+    --black: #333;
+    --mid: #555;
+    --light: #888;
+    --hairline: #e8e8e8;
+    --white: #fff;
+    --eucalyptus-green: #3deb6a;
+    --eucalyptus-pink: #d4a0a0;
+    --sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  /* ---------- HEADER ---------- */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    z-index: 100;
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  header.scrolled {
+    border-bottom-color: var(--hairline);
+  }
+
+  .header-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .header-name .stop {
+    display: none;
+  }
+
+  .header-back {
+    display: none;
+    color: var(--eucalyptus-green);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .header-back:hover {
+    opacity: 0.7;
+  }
+
+  header.scrolled-in nav {
+    display: none;
+  }
+
+  header.scrolled-in .header-back {
+    display: block;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.25rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--mid);
+    letter-spacing: 0.01em;
+  }
+
+  nav a:hover {
+    color: var(--eucalyptus-green);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 12rem 1.5rem 7rem;
+    max-width: 1100px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.0;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 .stop {
+    display: none;
+  }
+
+  .hero-tag {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--mid);
+    max-width: 36rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 5rem 1.5rem;
+    max-width: 1100px;
+    scroll-margin-top: 5rem;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--light);
+    margin-bottom: 1.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--eucalyptus-green);
+  }
+
+  /* About */
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 18rem;
+    gap: 4rem;
+    align-items: start;
+    max-width: 52rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--black);
+  }
+
+  .about-text p {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: var(--hairline);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-photo-placeholder {
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 720px) {
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .about-photo {
+      max-width: 14rem;
+    }
+  }
+
+  /* Lists — Positions, Qualifications, Awards */
+  .entry-list {
+    list-style: none;
+    max-width: 52rem;
+  }
+
+  .entry-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+
+  .entry-list li:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .entry-date {
+    font-size: 0.85rem;
+    color: var(--eucalyptus-pink);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .entry-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .entry-title {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--black);
+  }
+
+  .entry-meta {
+    color: var(--mid);
+    font-size: 0.88rem;
+    margin-top: 0.2rem;
+  }
+
+  .entry-detail {
+    color: var(--mid);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* Publications & Presentations */
+  .pub-group {
+    margin-bottom: 2.5rem;
+  }
+
+  .pub-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .pub-list {
+    list-style: none;
+    max-width: 52rem;
+  }
+
+  .pub-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--hairline);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--black);
+    align-items: baseline;
+  }
+
+  .pub-list li:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .pub-venue {
+    color: var(--mid);
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+  }
+
+  /* Projects */
+  .project-list {
+    list-style: none;
+    max-width: 52rem;
+  }
+
+  .project-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--hairline);
+    align-items: baseline;
+  }
+
+  .project-list li:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .project-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--eucalyptus-pink);
+    white-space: nowrap;
+  }
+
+  .project-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--light);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .project-link:hover {
+    color: var(--eucalyptus-green);
+    border-bottom-color: var(--eucalyptus-green);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2.5rem;
+    max-width: 52rem;
+  }
+
+  .contact-block-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-block-value {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .contact-block-value a {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .contact-block-value a:hover {
+    color: var(--eucalyptus-pink);
+    border-bottom-color: var(--eucalyptus-pink);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 6rem;
+    padding: 3rem 1.5rem 2.5rem;
+    border-top: 1px solid var(--hairline);
+    max-width: 1100px;
+  }
+
+  .footer-rule {
+    width: 24px;
+    height: 1px;
+    background: var(--eucalyptus-pink);
+    margin-bottom: 1.5rem;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: var(--light);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  /* Hide nav before it clips — name + chevron always shown at narrow widths */
+  @media (max-width: 900px) {
+    nav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    header {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .hero {
+      padding: 8rem 1.5rem 4rem;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    footer {
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .entry-list li,
+    .pub-list li {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .entry-date {
+      font-size: 0.78rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-name">Dr Thomas C Reilly</div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#positions">Positions</a></li>
+      <li><a href="#qualifications">Qualifications</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#presentations">Presentations</a></li>
+      <li><a href="#open-source">Open Source</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="header-back" id="header-back" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 10L9 2L17 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</header>
+
+<section class="hero">
+  <h1>Dr Thomas C Reilly<span class="stop">.</span></h1>
+  <p class="hero-tag">Consultation Liaison Psychiatrist. Melbourne, Australia.</p>
+</section>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>Tom is a RANZCP accredited Consultation Liaison Psychiatrist at RMH Neuropsychiatry and Epworth Neuropsychiatry. He is a PhD Candidate through the University of Melbourne.</p>
+      <p>He has expertise in neurodegenerative conditions, neurostimulation, neuroimaging, and general consultation liaison psychiatry.</p>
+    </div>
+    <div class="about-photo">
+      <!-- Replace src with assets/photo.jpg once uploaded -->
+      <!-- <img src="assets/photo.jpg" alt="Dr Thomas C Reilly"> -->
+      <span class="about-photo-placeholder">Photo</span>
+    </div>
+  </div>
+</section>
+
+<section id="positions">
+  <div class="section-label">Current Positions</div>
+  <ul class="entry-list">
+    <li>
+      <span class="entry-date">2025 —</span>
+      <div class="entry-body">
+        <div class="entry-title">Consultation Liaison Psychiatrist</div>
+        <div class="entry-meta">Epworth Neuropsychiatry Service</div>
+        <div class="entry-detail">CL Psychiatrist and Neuropsychiatrist in the general hospital setting, including ICU, ED, Acquired Brain Injury, Neurostimulation, Pain, Haematology/Oncology, and Perioperative populations.</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2024 —</span>
+      <div class="entry-body">
+        <div class="entry-title">Psychiatrist</div>
+        <div class="entry-meta">Neuropsychiatry Centre, Royal Melbourne Hospital</div>
+        <div class="entry-detail">Neuropsychiatry Clinical Trials, running the Deep Brain Stimulation for OCD clinic, assessing suitability for DBS, programming DBS for OCD, pre-operative DBS assessments for patients with movement disorders.</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">Current</span>
+      <div class="entry-body">
+        <div class="entry-title">PhD Candidate</div>
+        <div class="entry-meta">Department of Psychiatry, The University of Melbourne</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="qualifications">
+  <div class="section-label">Qualifications</div>
+  <ul class="entry-list">
+    <li>
+      <span class="entry-date">2026</span>
+      <div class="entry-body">
+        <div class="entry-title">Clinical TMS Society PULSES Course for TMS</div>
+        <div class="entry-meta">Clinical TMS Society — Scholarship recipient</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2024</span>
+      <div class="entry-body">
+        <div class="entry-title">Fellowship of the Royal Australian and New Zealand College of Psychiatrists</div>
+        <div class="entry-meta">RANZCP</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2024</span>
+      <div class="entry-body">
+        <div class="entry-title">Advanced Certificate in Consultation Liaison Psychiatry</div>
+        <div class="entry-meta">RANZCP</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2021</span>
+      <div class="entry-body">
+        <div class="entry-title">Master of Psychiatric Medicine</div>
+        <div class="entry-meta">The University of Melbourne</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2015</span>
+      <div class="entry-body">
+        <div class="entry-title">Bachelor of Medicine, Bachelor of Surgery</div>
+        <div class="entry-meta">Deakin University</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2011</span>
+      <div class="entry-body">
+        <div class="entry-title">Bachelor of Biomedicine (Neuroscience)</div>
+        <div class="entry-meta">The University of Melbourne</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="awards">
+  <div class="section-label">Awards</div>
+  <ul class="entry-list">
+    <li>
+      <span class="entry-date">2026</span>
+      <div class="entry-body">
+        <div class="entry-title">Scholarship — Clinical TMS Society PULSES Course</div>
+        <div class="entry-meta">Singapore</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2022</span>
+      <div class="entry-body">
+        <div class="entry-title">Best Trainee Presentation</div>
+        <div class="entry-meta">Behavioural Neurology and Neuropsychiatry Conference, Melbourne</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="research">
+  <div class="section-label">Research</div>
+  <ul class="pub-list">
+    <li>
+      <span class="entry-date">In prep</span>
+      <div>
+        Extended case series of DBS for severe refractory OCD
+        <div class="pub-venue">Co-first author</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2025</span>
+      <div>
+        A whole-brain structural connectivity signature in adult Niemann-Pick disease type C
+        <div class="pub-venue">Reilly et al.</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2025</span>
+      <div>
+        Implications of the choroid plexus in Niemann-Pick disease Type C neuropathogenesis
+        <div class="pub-venue">Contributing author</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2023</span>
+      <div>
+        Investigating the overlapping neuroimaging correlates of Schizophrenia and NPC using DTI imaging
+        <div class="pub-venue">Melbourne Neuropsychiatry Centre — RANZCP Scholarly Project</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="presentations">
+  <div class="section-label">Presentations</div>
+  <ul class="pub-list">
+    <li>
+      <span class="entry-date">2025</span>
+      <div>
+        Connectivity — what is it and why a psychiatrist should care
+        <div class="pub-venue">Oral presentation, RANZCP Congress, Gold Coast, Australia</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2025</span>
+      <div>
+        Extended case series of DBS for severe refractory OCD
+        <div class="pub-venue">Oral presentation, RANZCP Congress, Gold Coast, Australia</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2024</span>
+      <div>
+        Extended case series of DBS for severe refractory OCD
+        <div class="pub-venue">Oral presentation, International Neuropsychiatry Association Conference, Melbourne</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2024</span>
+      <div>
+        Left frontotemporal and subcortical dysconnectivity in adult NPC
+        <div class="pub-venue">Oral presentation and poster, Lysosomal Storage Disease Summit, Melbourne</div>
+      </div>
+    </li>
+    <li>
+      <span class="entry-date">2022</span>
+      <div>
+        A rare cause of rapidly progressive dementia
+        <div class="pub-venue">Oral presentation and Trainee Prize Winner, Behavioural Neurology and Neuropsychiatry Conference, Melbourne</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="open-source">
+  <div class="section-label">Open Source</div>
+  <ul class="project-list">
+    <li>
+      <span class="project-tag">Research tool</span>
+      <div class="entry-body">
+        <div class="entry-title">ZORA — Zotero Research Amplifier</div>
+        <div class="entry-meta">AI-assisted research synthesis, built on Zotero and Claude</div>
+        <div class="entry-detail">Modules for summarising, synthesising, polishing, and discovering academic literature. Designed for clinical researchers and academics.</div>
+        <a class="project-link" href="https://github.com/" target="_blank">github.com/drtomreilly →</a>
+      </div>
+    </li>
+    <li>
+      <span class="project-tag">Textbook</span>
+      <div class="entry-body">
+        <div class="entry-title">Neuropsychiatry — An Open Textbook</div>
+        <div class="entry-meta">Online reference resource, hosted on GitHub Pages</div>
+        <div class="entry-detail">A collaboratively maintained open textbook covering clinical neuropsychiatry — conditions, assessments, and management. Intended for trainees and clinicians.</div>
+        <a class="project-link" href="https://github.com/" target="_blank">github.com/drtomreilly →</a>
+      </div>
+    </li>
+    <li>
+      <span class="project-tag">Desktop — open</span>
+      <div class="entry-body">
+        <div class="entry-title">Peppermint</div>
+        <div class="entry-meta">Desktop application — open source</div>
+        <div class="entry-detail">Description of what Peppermint does to be added. The desktop application is open source. An iPhone application is available separately.</div>
+        <a class="project-link" href="https://github.com/" target="_blank">github.com/drtomreilly →</a>
+      </div>
+    </li>
+    <li>
+      <span class="project-tag">iPhone — commercial</span>
+      <div class="entry-body">
+        <div class="entry-title">Peppermint for iPhone</div>
+        <div class="entry-meta">iOS application — licensing and partnership enquiries welcome</div>
+        <a class="project-link" href="mailto:contact@drtomreilly.com">Enquire →</a>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-block-label">Email</div>
+      <div class="contact-block-value"><a href="mailto:contact@drtomreilly.com">contact@drtomreilly.com</a></div>
+    </div>
+    <div>
+      <div class="contact-block-label">Phone</div>
+      <div class="contact-block-value"><a href="tel:+61429804284">+61 429 804 284</a></div>
+    </div>
+    <div>
+      <div class="contact-block-label">Referrals</div>
+      <div class="contact-block-value">Referral process detail to be added</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-rule"></div>
+  <p>© Dr Thomas C Reilly · Melbourne</p>
+</footer>
+
+<script>
+  const header  = document.getElementById('header');
+  const heroEl  = document.querySelector('.hero');
+  const backBtn = document.getElementById('header-back');
+
+  function onHeaderScroll() {
+    const heroBottom = heroEl.getBoundingClientRect().bottom;
+    const narrow = window.innerWidth <= 900;
+
+    if (heroBottom < 0) {
+      // Past hero — minimal mode on all widths
+      header.classList.add('scrolled', 'scrolled-in');
+    } else if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+      header.classList.remove('scrolled-in');
+    } else {
+      header.classList.remove('scrolled', 'scrolled-in');
+    }
+
+    // On narrow widths, always show the chevron
+    if (narrow) {
+      backBtn.style.display = 'block';
+    }
+  }
+
+  window.addEventListener('scroll', onHeaderScroll, { passive: true });
+  window.addEventListener('resize', onHeaderScroll);
+  onHeaderScroll();
+</script>
+
+<!-- Easter egg gallery — scroll to discover -->
+<div id="gallery" aria-hidden="true">
+  <div class="gallery-hint" id="gallery-hint">↓</div>
+</div>
+
+<style>
+  #gallery {
+    position: relative;
+    padding: 0 1.5rem 12rem;
+    overflow: hidden;
+  }
+
+  .gallery-hint {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--hairline);
+    letter-spacing: 0.1em;
+    padding: 3rem 0;
+    transition: opacity 1s ease;
+    font-family: var(--sans);
+  }
+
+  .gallery-hint.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gallery-item {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  .gallery-item.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .gallery-item.faded {
+    opacity: 0;
+  }
+
+  @media (max-width: 720px) {
+    .gallery-item {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      max-width: 100%;
+      margin-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 721px) {
+    .gallery-item {
+      position: absolute;
+      max-width: 28rem;
+    }
+  }
+
+  .gallery-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-img-placeholder {
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--sans);
+  }
+
+  .gallery-caption {
+    font-size: 0.85rem;
+    color: var(--black);
+    line-height: 1.5;
+    font-family: var(--sans);
+    font-weight: 400;
+  }
+
+  .gallery-caption-meta {
+    font-size: 0.75rem;
+    color: var(--light);
+    margin-top: 0.25rem;
+    font-family: var(--sans);
+  }
+
+  .gallery-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+    font-family: var(--sans);
+  }
+
+  .gallery-tag.talk    { color: var(--eucalyptus-pink); }
+  .gallery-tag.imaging { color: var(--eucalyptus-green); }
+  .gallery-tag.writing { color: var(--light); }
+</style>
+
+<script>
+  const galleryItems = [
+    {
+      tag: 'talk', tagLabel: 'Talk',
+      caption: 'RANZCP Congress 2025, Gold Coast — presenting on brain connectivity and why psychiatrists should care.',
+      date: 'May 2025', img: null
+    },
+    {
+      tag: 'imaging', tagLabel: 'Neuroimaging',
+      caption: 'Whole-brain structural connectivity signature in adult Niemann-Pick disease type C. DTI tractography visualisation.',
+      date: '2025', img: null
+    },
+    {
+      tag: 'talk', tagLabel: 'Talk',
+      caption: 'International Neuropsychiatry Association Conference, Melbourne — extended case series of DBS for severe refractory OCD.',
+      date: 'October 2024', img: null
+    },
+    {
+      tag: 'imaging', tagLabel: 'Neuroimaging',
+      caption: 'Left frontotemporal and subcortical dysconnectivity in adult NPC. Presented at Lysosomal Storage Disease Summit.',
+      date: '2024', img: null
+    },
+    {
+      tag: 'writing', tagLabel: 'Research',
+      caption: 'Investigating the overlapping neuroimaging correlates of Schizophrenia and NPC using DTI imaging.',
+      date: '2023', img: null
+    },
+    {
+      tag: 'talk', tagLabel: 'Talk',
+      caption: 'Behavioural Neurology and Neuropsychiatry Conference 2022 — a rare cause of rapidly progressive dementia. Trainee Prize Winner.',
+      date: '2022', img: null
+    }
+  ];
+
+  const gallery  = document.getElementById('gallery');
+  const hint     = document.getElementById('gallery-hint');
+  const BREAKPOINT = 721;
+  const ITEM_H     = 520;
+  const MARGIN     = 80;
+
+  // Stable jitter values computed once
+  const jitter = galleryItems.map((_, i) => ({
+    side:   i % 2 === 0 ? 'left' : 'right',
+    offset: Math.floor(Math.random() * 120)
+  }));
+
+  // Build DOM
+  const els = galleryItems.map((item) => {
+    const el = document.createElement('div');
+    el.className = 'gallery-item';
+    el.innerHTML = `
+      <div class="gallery-tag ${item.tag}">${item.tagLabel}</div>
+      <div class="gallery-img">
+        ${item.img
+          ? `<img src="${item.img}" alt="${item.caption}">`
+          : `<span class="gallery-img-placeholder">Image</span>`}
+      </div>
+      <div class="gallery-caption">${item.caption}</div>
+      <div class="gallery-caption-meta">${item.date}</div>`;
+    gallery.appendChild(el);
+    return el;
+  });
+
+  function wide() { return window.innerWidth >= BREAKPOINT; }
+
+  function layoutWide() {
+    gallery.style.minHeight = `${MARGIN + galleryItems.length * ITEM_H + 400}px`;
+    els.forEach((el, i) => {
+      const { side, offset } = jitter[i];
+      const left = side === 'left'
+        ? 40 + offset
+        : Math.min(window.innerWidth * 0.42 + offset, window.innerWidth - 440);
+      el.style.position     = 'absolute';
+      el.style.top          = `${MARGIN + i * ITEM_H}px`;
+      el.style.left         = `${left}px`;
+      el.style.width        = side === 'left' ? '26rem' : '24rem';
+      el.style.marginBottom = '';
+    });
+  }
+
+  function layoutNarrow() {
+    gallery.style.minHeight = '';
+    els.forEach((el) => {
+      el.style.position     = 'relative';
+      el.style.top          = '';
+      el.style.left         = '';
+      el.style.width        = '100%';
+      el.style.marginBottom = '5rem';
+    });
+  }
+
+  function applyLayout() {
+    wide() ? layoutWide() : layoutNarrow();
+  }
+
+  applyLayout();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(applyLayout, 100);
+  });
+
+  let hintHidden = false;
+
+  function onScroll() {
+    const scrollY    = window.scrollY;
+    const winH       = window.innerHeight;
+    const galleryTop = gallery.getBoundingClientRect().top + scrollY;
+
+    if (!hintHidden && scrollY + winH > galleryTop + 60) {
+      hint.classList.add('hidden');
+      hintHidden = true;
+    }
+
+    if (wide()) {
+      els.forEach((el, i) => {
+        const itemTop = galleryTop + MARGIN + i * ITEM_H;
+        const dist    = (scrollY + winH * 0.6) - itemTop;
+        if (dist > 0 && dist < ITEM_H * 1.4) {
+          el.classList.add('visible');
+          el.classList.remove('faded');
+        } else if (dist >= ITEM_H * 1.4) {
+          el.classList.add('faded');
+          el.classList.remove('visible');
+        } else {
+          el.classList.remove('visible', 'faded');
+        }
+      });
+    } else {
+      els.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < winH * 0.85) {
+          el.classList.add('visible');
+          el.classList.remove('faded');
+        }
+      });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
